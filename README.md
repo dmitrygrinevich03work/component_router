@@ -1,3 +1,4 @@
+## Note: check that the .htaccess file has been configured.
 ## 1.Connect component Routers:
 ```php 
 require_once "../component/routers.php";
