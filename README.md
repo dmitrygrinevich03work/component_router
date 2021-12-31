@@ -1,39 +1,38 @@
-# Simple PHP Router
-
-
-## Usage
+## 1.Connect component Query Builder:
 ```php 
-require_once('Route.php');
+require_once "../component/routers.php";
 ```
 
-## Typical Use
-Before use you can set dir location with you actions files
+## 2.Installing the controller for routes
+2.1 Before use you can set dir location with you actions files
 ```php
-Route::setActionsDir('../controllers/');
+Router::set_path_controller('../controller/');
 ```
-and set 404 file location (in case action file not found) 
+Set path to 404 page!
 ```php
-Route::set404File('../file404.php');
+Router::set_page_error_404('/page_404.php');
 ``` 
 
-Then you must add your routes. First call static method get() or post(), where as argument enter url. After you must call method path(), where as argument enter file location.
+2.2 Add your routes. Call the Router :: set_component method with "url" and "file location" as an argument.
 ```php
-Route::get('')->path('main.php');
-Route::post('login')->path('login_handler.php');
+Router::set_component('url', 'page.php');
 ```
-After run router to execute
+2.3 After registering the routes, call the Router :: run_routers method
 ```php
-Route::run();
+Router::run_routers();
 ```
-## Simple Use
+## 4. Execute a query as in examples below:
 
 ```php
-Route::get('')->path('main.php');
-Route::get('login')->path('login_form.php');
-Route::post('login')->path('login_handler.php');
-Route::get('register')->path('register_form.php');
-Route::post('register')->path('register_handler.php');
-Route::get('user')->path('user_info.php');
+require_once "../component/routers.php";
 
-Route::run();
+Router::set_path_controller('../controller/');
+Router::set_page_error_404('/page_404.php');
+
+Router::set_component('/', 'homepage.php');
+Router::set_component('/about', 'about.php');
+Router::set_component('/sww', 'homepage.php');
+
+Router::run_routers();
+
 ```
