@@ -1,4 +1,4 @@
-## 1.Connect component Query Builder:
+## 1.Connect component Routers:
 ```php 
 require_once "../component/routers.php";
 ```
